@@ -11,7 +11,19 @@ export class Gift {
 
   }
 
+  get giftTemplate() {
+
+    return `
+    
+    <p>
+    <img src=" ${this.url}" alt="">
+   </p>
+
+    `
+
+
+
+  }
 
 }
-
 

@@ -6,8 +6,9 @@ export class GiftsController {
 
   constructor() {
 
-    console.log('live from the controller');
+
     AppState.on('identity', this.getGiftsData)
+    AppState.on('gifts', this.drawGifts)
   }
 
 
@@ -20,15 +21,27 @@ export class GiftsController {
     } catch (error) {
       Pop.error(error);
       console.error(error);
-
-
     }
 
 
   }
 
 
+  drawGifts() {
 
+    const gifts = AppState.gifts
+
+    let giftsContent = ''
+
+    gifts.forEach(gift => giftsContent += gift.giftTemplate)
+
+    const giftElem = document.getElementById('giftContent')
+    giftElem.innerHTML = giftsContent
+
+    console.log('drawing gifts');
+
+
+  }
 
 
 }
