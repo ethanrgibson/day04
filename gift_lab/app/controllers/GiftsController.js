@@ -40,6 +40,17 @@ export class GiftsController {
 
     console.log('drawing gifts');
 
+  }
+
+  async openGift(giftId) {
+    try {
+      await giftsService.openGift(giftId)
+    } catch (error) {
+      Pop.error(error)
+      console.error(error);
+    }
+
+
 
   }
 

@@ -16,7 +16,7 @@ export class Gift {
     return `
     
     <p>
-    <img src=" ${this.url}" alt="">
+    <img onclick="app.giftsController.openGift('${this.id}')" role="button" src=" ${this.url}" alt="">
    </p>
 
     `
