@@ -3,6 +3,17 @@ import { Gift } from "../models/Gift.js";
 import { api } from "../utils/Axios.js"
 
 class GiftsService {
+
+
+
+
+  async createGift() {
+
+  }
+
+
+
+
   async deleteGift(giftId) {
     const response = await api.delete(`api/gifts/${giftId}`)
     console.log(response.data)

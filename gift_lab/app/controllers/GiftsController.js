@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js";
 import { giftsService } from "../services/GiftsService.js";
+import { getFormData } from "../utils/FormHandler.js";
 import { Pop } from "../utils/Pop.js";
 
 export class GiftsController {
@@ -59,6 +60,22 @@ export class GiftsController {
       Pop.error(error)
       console.error(error);
     }
+  }
+
+  async createGift() {
+    try {
+      event.preventDefault()
+      const giftForm = event.target
+      const giftData = getFormData(giftForm)
+      console.log(giftData);
+      giftsService.createGift()
+
+    } catch (error) {
+      Pop.error(error)
+      console.error(error);
+    }
+
+
   }
 
 }

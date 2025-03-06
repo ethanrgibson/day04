@@ -26,6 +26,16 @@
   <main>
     <section class="container">
       <div class="row">
+        <div class="col-md-12">
+          <div>
+            <form onsubmit="app.giftsController.createGift()">
+              <label for="createGift"></label>
+              <textarea name="tag" id="createGift" placeholder="What do you want?"></textarea>
+              <button>Submit</button>
+            </form>
+
+          </div>
+        </div>
         <div class="col-6" id="giftContent">
           <div class="d-flex">
             <!-- <img onclick="app.giftsController.openGift('${this.id}')" role="button" src=" ${this.url}" alt=""> -->
