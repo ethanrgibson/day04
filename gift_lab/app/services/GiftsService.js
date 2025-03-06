@@ -20,7 +20,9 @@ class GiftsService {
     const giftData = { opened: true }
     const response = await api.put(`api/gifts/${giftId}`, giftData)
     console.log('opened gift', response.data)
-
+    const openedGift = new Gift(response.data)
+    const giftIndex = AppState.gifts.findIndex(gift => gift.id == giftId)
+    AppState.gifts.splice(giftIndex, 1, openedGift)
 
 
   }

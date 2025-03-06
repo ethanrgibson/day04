@@ -8,7 +8,7 @@ export class GiftsController {
 
 
     AppState.on('identity', this.getGiftsData)
-    AppState.on('gifts', this.drawGifts)
+    // AppState.on('gifts', this.drawGifts)
   }
 
 
