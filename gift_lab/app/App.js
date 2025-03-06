@@ -1,8 +1,9 @@
-import { ExampleController } from './controllers/ExampleController.js';
+import { GiftsController } from "./controllers/GiftsController.js"
+
 
 class App {
 
-  ExampleController = new ExampleController() // ☑️ you can remove this - example only
+  giftsController = new GiftsController()
 
 }
 
