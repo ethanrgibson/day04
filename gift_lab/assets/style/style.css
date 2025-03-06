@@ -22,4 +22,5 @@ main {
 .gift-img {
   max-width: 50dvh;
   max-height: 50dvh;
+  margin: 10px;
 }

@@ -8,7 +8,7 @@ export class GiftsController {
 
 
     AppState.on('identity', this.getGiftsData)
-    // AppState.on('gifts', this.drawGifts)
+    AppState.on('gifts', this.drawGifts)
   }
 
 
@@ -22,8 +22,6 @@ export class GiftsController {
       Pop.error(error);
       console.error(error);
     }
-
-
   }
 
 
@@ -50,9 +48,17 @@ export class GiftsController {
       console.error(error);
     }
 
-
-
   }
 
+  async deleteGift(giftId) {
+    try {
+      const wantsToDelete = await Pop.confirm('Are you sure you want to delete this gift?')
+      if (!wantsToDelete) return
+      await giftsService.deleteGift(giftId)
+    } catch (error) {
+      Pop.error(error)
+      console.error(error);
+    }
+  }
 
 }

@@ -3,6 +3,12 @@ import { Gift } from "../models/Gift.js";
 import { api } from "../utils/Axios.js"
 
 class GiftsService {
+  async deleteGift(giftId) {
+    const response = await api.delete(`api/gifts/${giftId}`)
+    console.log(response.data)
+    const giftIndex = AppState.gifts.findIndex(gifts => gifts.id == giftId)
+    AppState.gifts.splice(giftIndex, 1)
+  }
 
 
 

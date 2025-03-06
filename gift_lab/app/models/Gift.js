@@ -15,12 +15,11 @@ export class Gift {
 
     return `
     
-    <div class="d-flex">
-    <p>
-    <img onclick="app.giftsController.openGift('${this.id}')" role="button" src=" ${this.url}" alt="">
-   </p>
-   <button class="text-end"> delete gift </button>
-  </div>
+   <div class="d-flex">
+            <img class="gift-img" onclick="app.giftsController.openGift('${this.id}')" role="button" src=" ${this.url}" alt="">
+          </div>
+          <p class="m-2">${this.tag} </p>
+          <button onclick="app.giftsController.deleteGift('${this.id}')" class="text-end"> delete gift </button>
     `
 
 
