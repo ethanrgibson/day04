@@ -17,3 +17,12 @@ export const giphyApi = axios.create({
 
 });
 
+class GiphyService {
+
+
+  async
+
+
+
+}
+

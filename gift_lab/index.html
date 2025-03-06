@@ -29,8 +29,16 @@
         <div class="col-md-12">
           <div>
             <form onsubmit="app.giftsController.createGift()">
+
               <label for="createGift"></label>
               <textarea name="tag" id="createGift" placeholder="What do you want?"></textarea>
+              <label for="createdGiftImg"></label>
+              <input type="url" name="url" id="createdGiftImg" required placeholder="Add URL">
+
+              <label for="searchGiphy"></label>
+              <input type="search" name="q" id="searchGiphy" placeholder="Search GIPHY">
+              <search></search>
+
               <button>Submit</button>
             </form>
 

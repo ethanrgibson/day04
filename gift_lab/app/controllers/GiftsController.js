@@ -68,7 +68,7 @@ export class GiftsController {
       const giftForm = event.target
       const giftData = getFormData(giftForm)
       console.log(giftData);
-      giftsService.createGift()
+      await giftsService.createGift(giftData)
 
     } catch (error) {
       Pop.error(error)

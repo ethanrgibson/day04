@@ -7,7 +7,11 @@ class GiftsService {
 
 
 
-  async createGift() {
+  async createGift(giftData) {
+    const response = await api.post('api/gifts', giftData)
+    console.log('created gift from service', response.data);
+    const gift = new Gift(response.data)
+    AppState.gifts.unshift(gift)
 
   }
 
