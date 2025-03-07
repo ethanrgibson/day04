@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js";
 import { giftsService } from "../services/GiftsService.js";
+import { giphySercive } from "../services/GiphyService.js";
 import { getFormData } from "../utils/FormHandler.js";
 import { Pop } from "../utils/Pop.js";
 
@@ -10,6 +11,7 @@ export class GiftsController {
 
     AppState.on('identity', this.getGiftsData)
     AppState.on('gifts', this.drawGifts)
+    AppState.on('giffy', this.drawGiffy)
   }
 
 
@@ -69,6 +71,24 @@ export class GiftsController {
       const giftData = getFormData(giftForm)
       console.log(giftData);
       await giftsService.createGift(giftData)
+      await giphySercive.search(giftData.q)
+    } catch (error) {
+      Pop.error(error)
+      console.error(error);
+    }
+
+
+  }
+
+
+  async searchGifs() {
+
+    try {
+      event.preventDefault()
+      const form = event.target
+
+      // @ts-ignore
+      await giphySercive.search(form.q.value)
 
     } catch (error) {
       Pop.error(error)
@@ -76,6 +96,11 @@ export class GiftsController {
     }
 
 
+
+  }
+
+  drawGiffy() {
+    document.getElementById('giffy-options').innerHTML = AppState.giffy.map(i => `<img src="${i}" role="button" onclick="createdGiftImg.value = '${i}'" />`).join('')
   }
 
 }

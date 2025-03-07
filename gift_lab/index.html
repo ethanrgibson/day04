@@ -26,7 +26,7 @@
   <main>
     <section class="container">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
           <div>
             <form onsubmit="app.giftsController.createGift()">
 
@@ -34,16 +34,20 @@
               <textarea name="tag" id="createGift" placeholder="What do you want?"></textarea>
               <label for="createdGiftImg"></label>
               <input type="url" name="url" id="createdGiftImg" required placeholder="Add URL">
-
-              <label for="searchGiphy"></label>
-              <input type="search" name="q" id="searchGiphy" placeholder="Search GIPHY">
-              <search></search>
-
               <button>Submit</button>
             </form>
-
           </div>
         </div>
+        <div class="col-md-6">
+          <form onsubmit="app.giftsController.searchGifs()">
+            <label for="searchGiphy"></label>
+            <input type="search" name="q" id="searchGiphy" placeholder="Search GIPHY">
+            <button>Search</button>
+          </form>
+          <div id="giffy-options"></div>
+        </div>
+
+
         <div class="col-6" id="giftContent">
           <div class="d-flex">
             <!-- <img onclick="app.giftsController.openGift('${this.id}')" role="button" src=" ${this.url}" alt=""> -->

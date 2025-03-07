@@ -24,3 +24,10 @@ main {
   max-height: 50dvh;
   margin: 10px;
 }
+
+#giffy-options img {
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+  cursor: pointer;
+}

@@ -1,4 +1,6 @@
+import { AppState } from "../AppState.js";
 import { baseURL } from "../env.js";
+import { Gift } from "../models/Gift.js";
 
 // @ts-ignore
 export const giphyApi = axios.create({
@@ -8,9 +10,9 @@ export const giphyApi = axios.create({
 
   params: {
 
-    key: 'UZKF8h6Jo5b1nob75BEIxHPNzNSzoWVN',
+    api_key: 'UZKF8h6Jo5b1nob75BEIxHPNzNSzoWVN',
     rating: 'pg',
-    limit: 10,
+    limit: 1000,
 
   }
 
@@ -20,9 +22,29 @@ export const giphyApi = axios.create({
 class GiphyService {
 
 
-  async
+  async search(query) {
 
+    const res = await giphyApi.get('search', {
+      params: {
+        q: query
+      }
+    })
+
+    console.log(res.data);
+
+
+    const gifs = res.data.data.map(g => g.images.downsized_large.url)
+    AppState.giffy = gifs.filter(i => i)
+    // const searchedGif = new Gift(gifs)
+
+
+    // console.log(searchedGif);
+
+  }
 
 
 }
 
+
+
+export const giphySercive = new GiphyService()
